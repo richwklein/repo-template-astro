@@ -1,26 +1,57 @@
 # Repository Instructions
 
-These instructions apply to any agent (Claude Code, Copilot, etc.) working in repositories generated from this template.
+These instructions apply to any agent (Claude Code, Copilot, etc.) working in repositories generated from `repo-template-astro`.
+
+## Toolchain
+
+- Node.js (version pinned in `.tool-versions`)
+- npm as the package manager and script runner
+
+## After editing source
+
+When a task changes any `.js`, `.mjs`, `.cjs`, `.ts`, `.astro`, `.md`, or `.mdx` file, run these scripts before finishing:
+
+```bash
+npm run lint:fix
+npm run format:fix
+```
+
+For larger changes, dependency changes, CI changes, or changes that may affect build/runtime behavior, also run:
+
+```bash
+npm run verify
+```
+
+`verify` runs lint, format-check, tests, and build — the same checks CI runs.
 
 ## Commits
 
-Use [Conventional Commits](https://www.conventionalcommits.org/) for commit messages. The release workflow (release-please) parses these to generate changelogs and version bumps.
+Use [Conventional Commits](https://www.conventionalcommits.org/) for commit messages. release-please parses these to generate changelogs and version bumps.
 
 Allowed types: `feat`, `fix`, `chore`, `docs`, `refactor`, `test`, `build`, `ci`, `perf`, `style`.
 
-Breaking changes: append `!` after the type (e.g., `feat!: rename public API`) or add a `BREAKING CHANGE:` footer.
+Breaking changes: append `!` (e.g., `feat!: rename public API`) or include a `BREAKING CHANGE:` footer.
+
+## Release versioning
+
+`package.json` is the version source of truth, owned by release-please. **Do not manually edit the `version` field** — release-please opens a release PR that bumps it. Merging the release PR cuts the tag + GitHub Release.
 
 ## Branching
 
 - `main` is the default branch and is protected by a ruleset.
 - All work happens in feature branches merged via pull request.
-- Squash or rebase merges only — no merge commits.
-- Branches must be up to date with `main` before merging (`strict_required_status_checks_policy`).
+- Squash merges only — no merge commits, no rebase merges.
+- Branches must be up to date with `main` before merging (strict status checks).
+- Commits must be signed.
 
-## Required local checks
+## Required gates before merge
 
-Before pushing, the workflows that gate merge are `lint`, `test`, and `analyze` (CodeQL). Repos generated from `repo-template-astro` have lint and test commands wired into `package.json`; reach for those first.
+- `lint` (eslint + prettier)
+- `test` (vitest with coverage)
+- `build` (astro check + astro build)
+- `analyze (actions)` (CodeQL workflow analysis)
+- `analyze (javascript-typescript)` (CodeQL source analysis)
 
 ## Drift audit
 
-Run `/repo-template-audit` from this repo's directory to check that template-tracked files and GitHub repo settings still match the canonical sources in `richwklein/repo-template-base`.
+Run `/repo-template-audit` from this repo's directory to check that template-tracked files and GitHub repo settings still match canonical sources.

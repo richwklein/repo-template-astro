@@ -13,3 +13,56 @@ updates:
       github-actions:
         patterns:
           - '*'
+
+  - package-ecosystem: npm
+    directory: '/'
+    schedule:
+      interval: weekly
+    cooldown:
+      default-days: 5
+      semver-major-days: 30
+      semver-minor-days: 7
+      semver-patch-days: 3
+    open-pull-requests-limit: 20
+    labels:
+      - 'dependencies'
+    ignore:
+      - dependency-name: '*'
+        update-types: ['version-update:semver-patch']
+    groups:
+      astro:
+        patterns:
+          - 'astro'
+          - 'astro-*'
+          - '@astrojs/*'
+      eslint:
+        patterns:
+          - 'eslint'
+          - 'eslint-*'
+          - '@eslint/*'
+          - 'typescript-eslint'
+          - '@typescript-eslint/*'
+      prettier:
+        patterns:
+          - 'prettier'
+          - 'prettier-*'
+          - '@prettier/*'
+      tailwindcss:
+        patterns:
+          - 'tailwindcss'
+          - 'tailwindcss-*'
+          - '@tailwindcss/*'
+      typescript:
+        patterns:
+          - 'typescript'
+          - '@types/*'
+          - 'tslib'
+          - 'ts-node'
+      vitest:
+        patterns:
+          - 'vitest'
+          - 'vitest-*'
+          - '@vitest/*'
+      other-dependencies:
+        patterns:
+          - '*'

@@ -3,7 +3,12 @@
     "editorconfig.editorconfig",
     "davidanson.vscode-markdownlint",
     "github.vscode-github-actions",
-    "streetsidesoftware.code-spell-checker"
+    "streetsidesoftware.code-spell-checker",
+    "astro-build.astro-vscode",
+    "bradlc.vscode-tailwindcss",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "vitest.explorer"
   ],
   "unwantedRecommendations": []
 }
