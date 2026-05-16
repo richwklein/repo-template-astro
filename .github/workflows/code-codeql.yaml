@@ -25,7 +25,7 @@ jobs:
         #   actions, javascript-typescript, python, swift, ruby, go, java-kotlin, csharp, c-cpp
         # Note: each matrix value registers its own status check (e.g. `analyze (actions)`).
         # Update branch protection rulesets to match the values you list here.
-        language: ['actions']
+        language: ['actions', 'javascript-typescript']
     steps:
       - name: Checkout
         uses: actions/checkout@v6

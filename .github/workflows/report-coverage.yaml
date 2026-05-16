@@ -1,0 +1,30 @@
+name: 'Report Test Coverage'
+
+on:
+  workflow_run:
+    workflows: ['Test']
+    types:
+      - completed
+
+permissions:
+  actions: read
+  contents: read
+  pull-requests: write
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout source code'
+        uses: actions/checkout@v6
+
+      - name: 'Download test coverage'
+        uses: actions/download-artifact@v8
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          run-id: ${{ github.event.workflow_run.id }}
+          name: coverage
+          path: coverage
+
+      - name: 'Report test coverage on pull request'
+        uses: davelosert/vitest-coverage-report-action@v2

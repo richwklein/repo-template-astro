@@ -4,6 +4,9 @@ build/
 out/
 .cache/
 
+# astro generated types
+.astro/
+
 # dependencies
 node_modules/
 

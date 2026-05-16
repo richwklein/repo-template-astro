@@ -1,0 +1,19 @@
+name: 'Build'
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout source code'
+        uses: actions/checkout@v6
+
+      - name: 'Setup tools and dependencies'
+        uses: ./.github/actions/setup-tools
+
+      - name: 'Build project'
+        run: npm run build

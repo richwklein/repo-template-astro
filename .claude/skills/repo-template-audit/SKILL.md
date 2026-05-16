@@ -68,4 +68,4 @@ The skill's own files (`SKILL.md`, `manifest.json`, `lib/*`) are tracked in `man
 - Use `gh api ... --jq` for setting reads to keep the parser thin.
 - For file fetches: `gh api repos/richwklein/repo-template-base/contents/<path> --jq .content | base64 -d`.
 - The `code_scanning_default_setup` value is read via `GET /repos/{o}/{r}/code-scanning/default-setup` — not the main repo endpoint.
-- Keep all canonical state remote; never cache to disk. Audit must reflect the *current* template.
+- Keep all canonical state remote; never cache to disk. Audit must reflect the _current_ template.
