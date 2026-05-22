@@ -56,4 +56,4 @@ Breaking changes: append `!` (e.g., `feat!: rename public API`) or include a `BR
 
 Install the audit skill: `npx skills add richwklein/skills`
 
-Run `/repo-template-audit richwklein/repo-template-astro` to check that template-tracked files and GitHub repo settings still match this template.
+Run `/repo-template-audit richwklein/repo-template-astro` to check that template-tracked files and GitHub repo settings still match the template.
