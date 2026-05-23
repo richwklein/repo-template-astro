@@ -26,8 +26,7 @@ Click **Use this template → Create a new repository** on GitHub, then run thro
 - [ ] Update `astro.config.ts` with the integrations you need (sitemap, mdx, adapter, etc.).
 - [ ] Update `.vscode/settings.json` `cSpell.words` for project-specific terms.
 - [ ] Update `README.md` with your project description (replace this content).
-- [ ] **Apply repo settings** — see [`docs/REPO_SETTINGS.yaml`](docs/REPO_SETTINGS.yaml) (canonical defaults) and apply via the audit skill or `gh api`.
-- [ ] **Apply branch protection** — follow [`docs/BRANCH_PROTECTION.md`](docs/BRANCH_PROTECTION.md). Required status check contexts for this template are `lint`, `test`, `build`, `analyze (actions)`, and `analyze (javascript-typescript)`.
+- [ ] **Apply repo settings and branch protection** — run `/repo-template-audit richwklein/repo-template-astro` from a Claude Code session; the audit skill compares this repo's live GitHub settings and reports any drift. Required status check contexts for this template are `lint`, `test`, `build`, `analyze (actions)`, and `analyze (javascript-typescript)`. Add the branch ruleset **after** the first PR has run so the status check names are registered.
 
 ## Scripts
 
