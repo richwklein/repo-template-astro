@@ -1,6 +1,6 @@
 # Changelog
 
-## [0.2.0](https://github.com/richwklein/repo-template-astro/compare/repo-template-astro-v0.1.0...repo-template-astro-v0.2.0) (2026-05-22)
+## [0.2.0](https://github.com/richwklein/repo-template-astro/compare/v0.1.0...v0.2.0) (2026-05-22)
 
 
 ### Features
