@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.1](https://github.com/richwklein/repo-template-astro/compare/v0.2.0...v0.2.1) (2026-05-28)
+
+
+### Bug Fixes
+
+* **release:** explicitly disable component in tag name ([#21](https://github.com/richwklein/repo-template-astro/issues/21)) ([a5371eb](https://github.com/richwklein/repo-template-astro/commit/a5371ebe692dcd97341a9e9455d480491dd87914))
+
 ## [0.2.0](https://github.com/richwklein/repo-template-astro/compare/v0.1.0...v0.2.0) (2026-05-22)
 
 
