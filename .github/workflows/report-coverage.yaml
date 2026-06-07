@@ -28,9 +28,9 @@ jobs:
           name: coverage
           path: coverage
 
-      - name: 'No coverage artifact — noop'
+      - name: 'No coverage artifact'
         if: steps.download.outcome != 'success'
-        run: echo "::notice::No coverage artifact found (Test was skipped); nothing to report."
+        run: echo "::notice::No coverage artifact found; nothing to report."
 
       - name: 'Report test coverage on pull request'
         if: steps.download.outcome == 'success'

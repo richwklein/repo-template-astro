@@ -17,10 +17,6 @@ jobs:
         id: changes
         uses: ./.github/actions/detect-relevant-changes
 
-      - name: 'No relevant changes — noop'
-        if: steps.changes.outputs.relevant != 'true'
-        run: echo "::notice::No relevant changes detected; skipping tests."
-
       - name: 'Setup tools and dependencies'
         if: steps.changes.outputs.relevant == 'true'
         uses: ./.github/actions/setup-tools
