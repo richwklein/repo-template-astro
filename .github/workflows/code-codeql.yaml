@@ -11,6 +11,7 @@ on:
 permissions:
   actions: read
   contents: read
+  pull-requests: read
   security-events: write
 
 jobs:
@@ -20,8 +21,12 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # Override per-repo: each `include` entry is (language, runner).
+        # Override per-repo: each `include` entry is (language, runner, patterns).
         # 'actions' analyzes the workflow YAML itself and is always safe.
+        #
+        # `patterns` is consumed by ./.github/actions/detect-relevant-changes to
+        # decide whether the heavy CodeQL steps should run for a given PR.
+        # Omit `patterns` to fall back to the action's default JS/TS pattern set.
         #
         # Common (language, runner) pairings:
         #   actions, javascript-typescript, python, ruby, go,
@@ -47,18 +52,32 @@ jobs:
         include:
           - language: actions
             runner: ubuntu-latest
+            patterns: |
+              ^\.github/(workflows|actions)/
           - language: javascript-typescript
             runner: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v6
 
+      - name: Detect relevant changes
+        id: changes
+        uses: ./.github/actions/detect-relevant-changes
+        with:
+          patterns: ${{ matrix.patterns }}
+
+      - name: No relevant changes — noop
+        if: steps.changes.outputs.relevant != 'true'
+        run: echo "::notice::No relevant changes detected; skipping CodeQL analyze (${{ matrix.language }})."
+
       - name: Initialize CodeQL
+        if: steps.changes.outputs.relevant == 'true'
         uses: github/codeql-action/init@v4.36.0
         with:
           languages: ${{ matrix.language }}
 
       - name: Perform CodeQL analysis
+        if: steps.changes.outputs.relevant == 'true'
         uses: github/codeql-action/analyze@v4.36.0
         with:
           category: '/language:${{ matrix.language }}'
