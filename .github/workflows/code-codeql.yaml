@@ -21,12 +21,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # Override per-repo: each `include` entry is (language, runner, patterns).
+        # Override per-repo: each `include` entry is (language, runner).
         # 'actions' analyzes the workflow YAML itself and is always safe.
-        #
-        # `patterns` is consumed by ./.github/actions/detect-relevant-changes to
-        # decide whether the heavy CodeQL steps should run for a given PR.
-        # Omit `patterns` to fall back to the action's default JS/TS pattern set.
         #
         # Common (language, runner) pairings:
         #   actions, javascript-typescript, python, ruby, go,
@@ -48,12 +44,15 @@ jobs:
         #
         # Each include entry registers its own status check, named
         # `analyze (<language>, <runner>)`. Update branch protection
-        # rulesets to require those exact contexts.
+        # rulesets to require those exact contexts. Keep this matrix
+        # free of extra keys — anything added here becomes part of the
+        # status check name and would break the required-check contexts.
+        # Per-language inputs to other steps (e.g. detect-relevant-
+        # changes patterns) are selected via `matrix.language` in those
+        # steps' expressions.
         include:
           - language: actions
             runner: ubuntu-latest
-            patterns: |
-              ^\.github/(workflows|actions)/
           - language: javascript-typescript
             runner: ubuntu-latest
     steps:
@@ -64,7 +63,10 @@ jobs:
         id: changes
         uses: ./.github/actions/detect-relevant-changes
         with:
-          patterns: ${{ matrix.patterns }}
+          # 'actions' language only cares about workflow/action edits;
+          # 'javascript-typescript' falls back to the action's default
+          # JS/TS pattern set by passing an empty value.
+          patterns: ${{ matrix.language == 'actions' && '^\.github/(workflows|actions)/' || '' }}
 
       - name: No relevant changes — noop
         if: steps.changes.outputs.relevant != 'true'
