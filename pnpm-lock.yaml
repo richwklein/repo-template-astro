@@ -30,7 +30,7 @@ importers:
         specifier: ^1.1.14
         version: 1.6.20(@typescript-eslint/eslint-plugin@8.61.0(@typescript-eslint/parser@8.61.0(eslint@9.39.4(jiti@2.7.0))(typescript@6.0.3))(eslint@9.39.4(jiti@2.7.0))(typescript@6.0.3))(eslint@9.39.4(jiti@2.7.0))(typescript@6.0.3)(vitest@4.1.8)
       astro:
-        specifier: ^6.1.6
+        specifier: ^6.4.4
         version: 6.4.6(jiti@2.7.0)(lightningcss@1.32.0)(rollup@4.62.0)(yaml@2.9.0)
       eslint:
         specifier: ^9.39.4
