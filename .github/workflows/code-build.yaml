@@ -23,4 +23,4 @@ jobs:
 
       - name: 'Build project'
         if: steps.changes.outputs.relevant == 'true'
-        run: npm run build
+        run: pnpm run build
