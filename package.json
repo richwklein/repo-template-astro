@@ -4,6 +4,7 @@
   "description": "Astro + TypeScript + Tailwind starter template",
   "version": "0.2.1",
   "type": "module",
+  "packageManager": "pnpm@10.24.0",
   "scripts": {
     "dev": "astro dev",
     "build": "astro check && astro build",
@@ -14,7 +15,7 @@
     "format:fix": "prettier --write \"**/*.{js,mjs,cjs,ts,astro,md,mdx}\"",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
-    "verify": "npm run lint && npm run format && npm run test && npm run build",
+    "verify": "pnpm run lint && pnpm run format && pnpm run test && pnpm run build",
     "clean": "rm -rf .astro dist node_modules coverage"
   },
   "devDependencies": {

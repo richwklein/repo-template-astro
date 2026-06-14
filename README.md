@@ -8,9 +8,9 @@ Adds on top of the base:
 - **Tailwind CSS 4** via `@tailwindcss/vite`
 - **ESLint 10** + **Prettier 3** + Astro/Vitest plugins
 - **Vitest 4** with v8 coverage reporting
-- **npm** as the package manager (Node 22.21.0 pinned in `.tool-versions`)
+- **pnpm** as the package manager (Node 22.21.0 and pnpm 10.24.0 pinned in `.tool-versions`)
 - **Workflows**: `code-lint`, `code-test`, `code-build`, `report-coverage`, `release-please`
-- **Composite action**: `setup-tools` that installs Node + runs `npm ci`
+- **Composite action**: `setup-tools` that installs Node + pnpm and runs `pnpm install --frozen-lockfile`
 - **release-please** for semantic-release of `package.json` from Conventional Commits
 
 ## Use this template
@@ -19,7 +19,7 @@ Click **Use this template → Create a new repository** on GitHub, then run thro
 
 ### Post-template checklist
 
-- [ ] `npm install` to populate `node_modules` (lockfile is committed; this just hydrates).
+- [ ] `pnpm install` to populate `node_modules` (lockfile is committed; this just hydrates).
 - [ ] Update `package.json` `name`, `description`, and `version`.
 - [ ] Update `release-please-config.json` `package-name` to match `package.json` `name`.
 - [ ] Replace `src/pages/index.astro` and `src/layouts/Base.astro` with your real homepage and layout.
@@ -31,17 +31,17 @@ Click **Use this template → Create a new repository** on GitHub, then run thro
 ## Scripts
 
 ```bash
-npm run dev            # start dev server
-npm run build          # type-check (astro check) + production build
-npm run preview        # preview the production build
-npm run lint           # eslint
-npm run lint:fix       # eslint --fix
-npm run format         # prettier --check
-npm run format:fix     # prettier --write
-npm run test           # vitest run
-npm run test:coverage  # vitest run --coverage
-npm run verify         # lint + format + test + build (use before pushing)
-npm run clean          # remove .astro, dist, node_modules, coverage
+pnpm run dev            # start dev server
+pnpm run build          # type-check (astro check) + production build
+pnpm run preview        # preview the production build
+pnpm run lint           # eslint
+pnpm run lint:fix       # eslint --fix
+pnpm run format         # prettier --check
+pnpm run format:fix     # prettier --write
+pnpm run test           # vitest run
+pnpm run test:coverage  # vitest run --coverage
+pnpm run verify         # lint + format + test + build (use before pushing)
+pnpm run clean          # remove .astro, dist, node_modules, coverage
 ```
 
 ## Releases
