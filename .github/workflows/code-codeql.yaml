@@ -30,6 +30,13 @@ jobs:
         #   swift                       -> macos-latest
         #     (Swift extractor only runs on macOS)
         #
+        # PATH FILTERS: The detect-relevant-changes action defaults to
+        # .github/workflows/** and .github/actions/**. When adding a
+        # language entry here, pass the relevant source patterns via the
+        # `patterns` input so the job noop's when nothing important changed.
+        # Per-language pattern selection can be done inline:
+        #   patterns: ${{ matrix.language == 'actions' && '...' || '...' }}
+        #
         # COMPILED LANGUAGES (swift, c-cpp, java-kotlin, csharp) require a
         # build step BEFORE 'Perform CodeQL analysis' so the extractor can
         # observe source compilation. Example for Swift:
@@ -47,15 +54,16 @@ jobs:
         # rulesets to require those exact contexts. Keep this matrix
         # free of extra keys — anything added here becomes part of the
         # status check name and would break the required-check contexts.
-        # Per-language inputs to other steps (e.g. detect-relevant-
-        # changes patterns) are selected via `matrix.language` in those
-        # steps' expressions.
         include:
           - language: actions
             runner: ubuntu-latest
           - language: javascript-typescript
             runner: ubuntu-latest
     steps:
+      # Steps are conditionally skipped rather than the job, so the
+      # matrix-expanded status check (e.g. "analyze (actions, ubuntu-latest)")
+      # is always registered. A job-level skip leaves that check unreported,
+      # which blocks PRs that require it.
       - name: Checkout
         uses: actions/checkout@v6.0.3
 
