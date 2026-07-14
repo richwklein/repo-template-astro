@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.2](https://github.com/richwklein/repo-template-astro/compare/v0.2.1...v0.2.2) (2026-07-14)
+
+
+### Bug Fixes
+
+* **ci:** scope markdown change detection to src and public ([#34](https://github.com/richwklein/repo-template-astro/issues/34)) ([f85f570](https://github.com/richwklein/repo-template-astro/commit/f85f5708680a64b330ac1816e4958b2d30b2c74c))
+
 ## [0.2.1](https://github.com/richwklein/repo-template-astro/compare/v0.2.0...v0.2.1) (2026-05-28)
 
 
