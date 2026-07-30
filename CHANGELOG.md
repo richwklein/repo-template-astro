@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.3.0](https://github.com/richwklein/repo-template-astro/compare/v0.2.2...v0.3.0) (2026-07-30)
+
+
+### Features
+
+* upgrade to Astro 7 and add styled homepage ([#53](https://github.com/richwklein/repo-template-astro/issues/53)) ([9e34e9a](https://github.com/richwklein/repo-template-astro/commit/9e34e9ad61c964d74955575c22adb78a3d18ade2))
+
+
+### Miscellaneous Chores
+
+* **audit:** sync AGENTS.md and release-please config with template ([#51](https://github.com/richwklein/repo-template-astro/issues/51)) ([f18117a](https://github.com/richwklein/repo-template-astro/commit/f18117aa1a38e2de651a53bb6d2e24a7e1f692b5))
+
 ## [0.2.2](https://github.com/richwklein/repo-template-astro/compare/v0.2.1...v0.2.2) (2026-07-14)
 
 
