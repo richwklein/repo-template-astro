@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.1](https://github.com/richwklein/repo-template-astro/compare/v0.3.0...v0.3.1) (2026-09-06)
+
+
+### Miscellaneous Chores
+
+* **audit:** sync files with repo-template-base ([#60](https://github.com/richwklein/repo-template-astro/issues/60)) ([a1ce6e4](https://github.com/richwklein/repo-template-astro/commit/a1ce6e4b9eadfb1d79bb7e3065251f38e92626d0))
+
 ## [0.3.0](https://github.com/richwklein/repo-template-astro/compare/v0.2.2...v0.3.0) (2026-07-30)
 
 
