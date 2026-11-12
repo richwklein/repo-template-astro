@@ -8,7 +8,7 @@ Adds on top of the base:
 - **Tailwind CSS 4** via `@tailwindcss/vite`
 - **ESLint 10** + **Prettier 3** + Astro/Vitest plugins
 - **Vitest 4** with v8 coverage reporting
-- **pnpm** as the package manager (Node 22.21.0 and pnpm 10.24.0 pinned in `.tool-versions`)
+- **pnpm** as the package manager (Node 22.23.4 and pnpm 10.24.0 pinned in `.tool-versions`)
 - **Workflows**: `code-lint`, `code-test`, `code-build`, `report-coverage`, `release-please`
 - **Composite action**: `setup-tools` that installs Node + pnpm and runs `pnpm install --frozen-lockfile`
 - **release-please** for semantic-release of `package.json` from Conventional Commits
