@@ -4,14 +4,18 @@ Astro + TypeScript + Tailwind CSS template for [@richwklein](https://github.com/
 
 Adds on top of the base:
 
-- **Astro 6** with TypeScript strict mode and path aliases
+- **Astro 7** with TypeScript strict mode and path aliases
 - **Tailwind CSS 4** via `@tailwindcss/vite`
 - **ESLint 10** + **Prettier 3** + Astro/Vitest plugins
-- **Vitest 4** with v8 coverage reporting
+- **Vitest 5** with v8 coverage reporting
 - **pnpm** as the package manager (Node 22.23.4 and pnpm 10.24.0 pinned in `.tool-versions`)
 - **Workflows**: `code-lint`, `code-test`, `code-build`, `report-coverage`, `release-please`
 - **Composite action**: `setup-tools` that installs Node + pnpm and runs `pnpm install --frozen-lockfile`
 - **release-please** for semantic-release of `package.json` from Conventional Commits
+
+## Dependency maintenance
+
+Refresh dependencies with the pinned tooling using `pnpm update`, review the manifest and lockfile diff, then run `pnpm install --frozen-lockfile`, `pnpm run verify`, and `pnpm run test:coverage`. Commit the lockfile with the approved manifest updates. Keep the five-day release age and TypeScript 6 until the lint and Astro check peers support TypeScript 7.
 
 ## Use this template
 
