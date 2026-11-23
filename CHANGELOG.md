@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.2](https://github.com/richwklein/repo-template-astro/compare/v0.3.1...v0.3.2) (2026-11-23)
+
+
+### Miscellaneous Chores
+
+* **deps:** refresh Astro template tooling ([#81](https://github.com/richwklein/repo-template-astro/issues/81)) ([6a2a795](https://github.com/richwklein/repo-template-astro/commit/6a2a795f688582f7c66c374ac862b9b4467d1a4e))
+
 ## [0.3.1](https://github.com/richwklein/repo-template-astro/compare/v0.3.0...v0.3.1) (2026-10-04)
 
 
